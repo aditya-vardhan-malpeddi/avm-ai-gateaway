@@ -129,7 +129,7 @@ if 'scrubbed_text' in st.session_state:
         if st.button("Send Sanitized Prompt to Gemini"):
             try:
                 genai.configure(api_key=gemini_api_key)
-                model = genai.GenerativeModel('gemini-2.5-flash')
+                model = genai.GenerativeModel('gemini-3.8-flash')
                 combined_prompt = f"System Policy: {st.session_state['retrieved_policy']}\n\nUser Prompt: {st.session_state['scrubbed_text']}"
                 response = model.generate_content(combined_prompt)
                 st.success("Response from Gemini (via Zero-Trust Gateway):")
